@@ -3,6 +3,7 @@
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 
@@ -32,14 +33,15 @@ public class GradeManager {
 		
 	/**
 	 * Adds grade to this GradeManager.
-	 * @param grade - grade to add to this grad manager
+	 * @param in - grade to add to this grad manager
 	 */
-	public void addGrade(String grade) throws InvalidGradeException {
-		if (grade.equals("a")) {
+	public void addGrade(InputStream in) throws InvalidGradeException {
+		if (in.equals("a")) {
 			// TODO: YOUR CODE HERE
-		} else if (grade.equals("b")) {
+			
+		} else if (in.equals("b")) {
 			// TODO: YOUR CODE HERE
-		} else if (grade.equals("c")) {
+		} else if (in.equals("c")) {
 			// TODO: YOUR CODE HERE
 		} 		
 		// TODO: Add more cases in here
@@ -80,13 +82,15 @@ public class GradeManager {
 	 *                       in a histogram format
 	 *    exit             : exits the program
 	 * @param args
+	 * @throws InvalidGradeException 
 	 */
-	public static void main(String[]  args) {
+	public static void main(String[]  args) throws InvalidGradeException {
 		GradeManager gm = new GradeManager();
 		
 		BufferedReader cin = new BufferedReader(new InputStreamReader(System.in));
 	System.out.println("Starting the grade manager");
-		
+		String g =null;
+		gm.addGrade(System.in);
 		while (true) {
 				String input = null;
 				try {
